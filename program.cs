@@ -1,14 +1,14 @@
  try
             {
-                string sehir = Convert.ToString(comboBox1.SelectedItem);
+                string city = Convert.ToString(comboBox1.SelectedItem);
                 StringBuilder sb = new StringBuilder();
                 sb.Append("http://api.openweathermap.org/data/2.5/weather?q=");
-                sb.Append(sehir);
-                sb.Append("&mode=xml&lang=tr&units=metric&appid=84da53815a05e9047db1f57fdb88f25a");
+                sb.Append(city);
+                sb.Append("link continuation and add api");
                 XDocument hava = XDocument.Load(sb.ToString());
                 var temp = hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
                 var city = hava.Descendants("city").ElementAt(0).Attribute("name").Value;
-                this.Text = "Test -  " + DateTime.Now.ToLongTimeString() + " Konum: " + city + " Sıcaklık: " + temp;
+                this.Text = "Test -  " + DateTime.Now.ToLongTimeString() + " Location: " + city + " Temperature: " + temp;
 
             }
              catch(Exception a)
