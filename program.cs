@@ -31,11 +31,11 @@ namespace havadurumu
                 sb.Append("http://api.openweathermap.org/data/2.5/weather?q=");
                 sb.Append(city);
                 sb.Append("&mode=xml&lang=tr&units=metric&appid=yourapi");
-                XDocument hava = XDocument.Load(sb.ToString());
-                var temp = hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                var city = hava.Descendants("city").ElementAt(0).Attribute("name").Value;
-                var cloud = hava.Descendants("clouds").ElementAt(0).Attribute("name").Value;
-                var wind = hava.Descendants("speed").ElementAt(0).Attribute("value").Value;
+                XDocument weather = XDocument.Load(sb.ToString());
+                var temp = weather.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                var city = weather.Descendants("city").ElementAt(0).Attribute("name").Value;
+                var cloud = weather.Descendants("clouds").ElementAt(0).Attribute("name").Value;
+                var wind = weather.Descendants("speed").ElementAt(0).Attribute("value").Value;
                 sonuc = "" + DateTime.Now.ToLongTimeString() + " Location: " + city + " Temperature: " + temp + " Clouds:" + cloud + " Wind speed: " + wind;
                 
             }
